@@ -1,0 +1,10 @@
+{
+	"conatiner": {
+		"type": "string",
+		"value": "adlsgen2container"
+	},
+	"filePath": {
+		"type": "string",
+		"value": "target"
+	}
+}

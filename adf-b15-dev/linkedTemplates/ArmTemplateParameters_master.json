@@ -1,0 +1,66 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-b15-dev"
+		},
+		"ls_adls_source_accountKey": {
+			"value": ""
+		},
+		"ls_source_sql_database_password": {
+			"value": ""
+		},
+		"ls_sql_systemIdentity_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sqlserverb15dev.database.windows.net;Initial Catalog=sqldbdev"
+		},
+		"ls_target_db_password": {
+			"value": ""
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://reqres.in/api/users"
+		},
+		"ls_AzureKeyVault1_sql_properties_typeProperties_baseUrl": {
+			"value": "https://adf-keyvault-b15-dev.vault.azure.net/"
+		},
+		"ls_RestAPI_properties_typeProperties_url": {
+			"value": "https://reqres.in/api/users"
+		},
+		"ls_adls_source_properties_typeProperties_url": {
+			"value": "https://adlsgen2b15.dfs.core.windows.net"
+		},
+		"ls_source_sql_database_properties_typeProperties_server": {
+			"value": "sqlserverb15dev.database.windows.net"
+		},
+		"ls_source_sql_database_properties_typeProperties_database": {
+			"value": "sqldbdev"
+		},
+		"ls_source_sql_database_properties_typeProperties_userName": {
+			"value": "venkysura"
+		},
+		"ls_sql_keyvault_properties_typeProperties_connectionString_secretName": {
+			"value": "sqldbsecretb15"
+		},
+		"ls_target_db_properties_typeProperties_server": {
+			"value": "sqlserverb15dev.database.windows.net"
+		},
+		"ls_target_db_properties_typeProperties_database": {
+			"value": "targetsqldbdev"
+		},
+		"ls_target_db_properties_typeProperties_userName": {
+			"value": "venkysura"
+		},
+		"Tumbling_window_trigger_properties_pipeline_parameters_StartDate": {
+			"value": "@trigger().outputs.windowStartTime"
+		},
+		"Tumbling_window_trigger_properties_pipeline_parameters_EndDate": {
+			"value": "@trigger().outputs.windowEndTime"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
