@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "copybehavioursource",
+				"fileName": "CarSales.csv",
+				"folderPath": "source",
 				"fileSystem": "adlsgen2container"
 			},
 			"columnDelimiter": ",",
