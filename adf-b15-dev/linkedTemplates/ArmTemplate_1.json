@@ -542,7 +542,7 @@
 				"schema": [],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "iplteams"
+					"table": "wrongtablelnljahd"
 				}
 			},
 			"dependsOn": []
