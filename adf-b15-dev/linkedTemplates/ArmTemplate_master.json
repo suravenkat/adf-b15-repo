@@ -225,6 +225,26 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf-b15-dev_ArmTemplate_3')]"
+			]
+		},
+		{
+			"name": "adf-b15-dev_ArmTemplate_5",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_5.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
 					},
 					"Tumbling_window_trigger_properties_pipeline_parameters_StartDate": {
 						"value": "[parameters('Tumbling_window_trigger_properties_pipeline_parameters_StartDate')]"
@@ -235,7 +255,7 @@
 				}
 			},
 			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'adf-b15-dev_ArmTemplate_3')]"
+				"[resourceId('Microsoft.Resources/deployments', 'adf-b15-dev_ArmTemplate_4')]"
 			]
 		}
 	]
