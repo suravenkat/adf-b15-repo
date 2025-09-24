@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "Tumbling_window_trigger",
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "pl_tumbling_window_trigger",
