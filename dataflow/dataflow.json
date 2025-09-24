@@ -19,11 +19,22 @@
 					"name": "source2Table2"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_target_adls_dataflow",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "join1",
 					"description": "inner join on sourceTable1 and source2table2"
+				},
+				{
+					"name": "filter1"
 				}
 			],
 			"scriptLines": [
@@ -53,7 +64,27 @@
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> join1"
+				"     broadcast: 'auto')~> join1",
+				"join1 filter(equals(dep, 'IT')) ~> filter1",
+				"filter1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['joindataflow'],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          empid = source1Table1@id,",
+				"          empname = name,",
+				"          dep,",
+				"          salary,",
+				"          location,",
+				"          mobilenum,",
+				"          address,",
+				"          last_updated = source2Table2@last_updated",
+				"     ),",
+				"     partitionBy('hash', 1)) ~> sink1"
 			]
 		}
 	}
