@@ -1,0 +1,60 @@
+{
+	"name": "dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_source_dataflow",
+						"type": "DatasetReference"
+					},
+					"name": "source1Table1"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_source2_datafalow_2",
+						"type": "DatasetReference"
+					},
+					"name": "source2Table2"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "join1",
+					"description": "inner join on sourceTable1 and source2table2"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          id as integer,",
+				"          name as string,",
+				"          dep as string,",
+				"          salary as decimal(10,2),",
+				"          last_updated as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1Table1",
+				"source(output(",
+				"          id as integer,",
+				"          location as string,",
+				"          mobilenum as string,",
+				"          address as string,",
+				"          last_updated as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source2Table2",
+				"source1Table1, source2Table2 join(source1Table1@id == source2Table2@id,",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1"
+			]
+		}
+	}
+}
