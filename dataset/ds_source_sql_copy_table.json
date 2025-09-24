@@ -10,7 +10,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "iplteams"
+			"table": "wrongtablelnljahd"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
